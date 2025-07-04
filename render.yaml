@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: langgraph-agent
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host=0.0.0.0 --port=10000
+    envVars:
+      - key: OPENROUTER_API_KEY
+        value: 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
