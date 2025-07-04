@@ -6,6 +6,10 @@ import os
 app = FastAPI()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
+@app.get("/")
+def root():
+    return {"message": "Alive ✅"}
+
 @app.post("/webhook")
 async def webhook(request: Request):
     data = await request.json()
